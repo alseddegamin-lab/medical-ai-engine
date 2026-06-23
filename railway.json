@@ -1,0 +1,33 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "dockerfile"
+  },
+  "deploy": {
+    "numReplicas": 1,
+    "restartPolicyType": "on_failure",
+    "restartPolicyMaxRetries": 10
+  },
+  "variables": {
+    "DEEPSEEK_API_KEY": {
+      "description": "DeepSeek API Key for AI processing",
+      "value": ""
+    },
+    "DATABASE_URL": {
+      "description": "Database connection string",
+      "value": "sqlite:///./medical_questions.db"
+    },
+    "LOG_LEVEL": {
+      "description": "Logging level (DEBUG, INFO, WARNING, ERROR)",
+      "value": "INFO"
+    },
+    "ENVIRONMENT": {
+      "description": "Environment (development, staging, production)",
+      "value": "production"
+    },
+    "CORS_ORIGINS": {
+      "description": "Allowed CORS origins (comma-separated)",
+      "value": "*"
+    }
+  }
+}
