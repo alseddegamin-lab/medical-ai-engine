@@ -10,7 +10,6 @@ python-multipart==0.0.6
 
 # Database
 sqlalchemy==2.0.23
-sqlite3-python==1.0.0
 
 # PDF processing
 PyPDF2==3.0.1
