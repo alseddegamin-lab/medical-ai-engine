@@ -3,6 +3,7 @@
 Medical AI Engine - Main entry point
 """
 import sys
+import os
 import argparse
 import logging
 
@@ -41,9 +42,12 @@ def main():
     
     args = parser.parse_args()
     
+    # Default to server if no command specified
     if not args.command:
-        parser.print_help()
-        return 1
+        args.command = "server"
+        args.host = "0.0.0.0"
+        args.port = int(os.environ.get("PORT", 8000))
+        args.no_reload = True
     
     try:
         if args.command == "server":
