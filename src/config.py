@@ -9,10 +9,13 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     """Application settings"""
     
-    # API Keys
+    # API Keys (from environment variables only)
     deepseek_api_key: str = os.getenv("DEEPSEEK_API_KEY", "")
     openai_api_key: Optional[str] = os.getenv("OPENAI_API_KEY", None)
-    claude_api_key: Optional[str] = os.getenv("CLAUDE_API_KEY", None)
+    claude_api_key: str = os.getenv("CLAUDE_API_KEY", "")
+    
+    # API Provider (deepseek, openai, claude)
+    ai_provider: str = os.getenv("AI_PROVIDER", "deepseek")  # Default to DeepSeek
     
     # DeepSeek API
     deepseek_api_url: str = "https://api.deepseek.com/v1/chat/completions"
